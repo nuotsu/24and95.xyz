@@ -1,3 +1,4 @@
+import Noise from '@/ui/Noise'
 import Img from '@/ui/Img'
 import Design from './design'
 import Date from '@/ui/Date'
@@ -10,14 +11,26 @@ export default function Art({ artwork }: { artwork: Sanity.Artwork }) {
 					switch (layer._type) {
 						case 'image':
 							return (
-								<Img
-									className="col-span-full row-span-full w-full"
-									image={layer}
-									alt={`Layer ${i + 1}`}
-									draggable={false}
-									loading="eager"
+								<div
+									className="relative col-span-full row-span-full w-full overflow-hidden"
 									key={i}
-								/>
+								>
+									{layer.addNoise && (
+										<Noise
+											className="absolute inset-0 opacity-70 mix-blend-color-dodge grayscale"
+											baseFrequency={3}
+											numOctaves={6}
+										/>
+									)}
+
+									<Img
+										className="w-full"
+										image={layer}
+										alt={`Layer ${i + 1}`}
+										draggable={false}
+										loading="eager"
+									/>
+								</div>
 							)
 
 						case 'design':

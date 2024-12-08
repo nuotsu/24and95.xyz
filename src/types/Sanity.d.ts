@@ -7,7 +7,7 @@ declare global {
 
 		interface Artwork extends SanityDocument {
 			title?: string
-			layers?: Array<Image | Design>
+			layers?: Array<(Image & { addNoise?: boolean }) | Design>
 			date: string
 			hideDate?: boolean
 		}

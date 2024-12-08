@@ -16,6 +16,13 @@ export default defineType({
 				defineArrayMember({
 					type: 'image',
 					icon: IoIosImage,
+					fields: [
+						defineField({
+							name: 'addNoise',
+							type: 'boolean',
+							initialValue: false,
+						}),
+					],
 				}),
 				defineArrayMember({
 					type: 'reference',
@@ -37,16 +44,15 @@ export default defineType({
 	],
 	preview: {
 		select: {
+			title: 'layers.0.title',
 			date: 'date',
 			_id: '_id',
 			image: 'layers.0.asset',
 		},
-		prepare({ date, _id, image }) {
-			return {
-				title: date,
-				subtitle: _id.replace(/^drafts\./, ''),
-				media: image,
-			}
-		},
+		prepare: ({ title, date, _id, image }) => ({
+			title: title || date,
+			subtitle: title ? date : _id.replace(/^drafts\./, ''),
+			media: image,
+		}),
 	},
 })
