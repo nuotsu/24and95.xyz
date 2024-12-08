@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Instrument+Serif:ital@0;1&display=swap');
+
 @import 'tailwindcss';
 
 @theme {
@@ -6,10 +7,30 @@
 	--color-ink: #fff;
 
 	--font-autoboy: 'DotGothic16', sans-serif;
+	--font-serif: 'Instrument Serif', serif;
+	--font-dela: 'Dela Gothic One', sans-serif;
 }
 
 @layer base {
 	* {
 		min-width: 0;
+	}
+}
+
+/* animations */
+
+@utility anim-film-develop {
+	animation: film-develop 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@keyframes film-develop {
+	from {
+		opacity: 0;
+		scale: 0.5;
+		translate: 0 100%;
+	}
+
+	25% {
+		opacity: 0;
 	}
 }

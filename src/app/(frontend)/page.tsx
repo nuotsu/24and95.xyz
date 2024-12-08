@@ -4,18 +4,25 @@ import Date from '@/ui/Date'
 
 export default async function Home() {
 	const artworks = await fetchSanityLive<Sanity.Artwork[]>({
-		query: groq`*[_type == 'artwork']`,
+		query: groq`*[_type == 'artwork']{
+			...,
+			'title': layers[_type == 'reference']->.title,
+		}`,
 	})
 
 	return (
 		<>
-			<h1>24and95</h1>
+			<h1 className="font-dela">24アンド95</h1>
+
 			<ul>
 				{artworks.map((artwork) => (
 					<li key={artwork._id}>
 						<Link href={`/art/${artwork._id}`}>
-							<span>{artwork._id}</span>
-							<Date date={artwork.date} />
+							<span className="font-serif text-2xl">
+								{artwork.title || artwork._id}
+							</span>
+
+							<Date className="text-xs" date={artwork.date} />
 						</Link>
 					</li>
 				))}

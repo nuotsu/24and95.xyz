@@ -6,6 +6,7 @@ declare global {
 		// documents
 
 		interface Artwork extends SanityDocument {
+			title?: string
 			layers?: Array<Image | Design>
 			date: string
 			hideDate?: boolean
@@ -16,7 +17,7 @@ declare global {
 		}
 
 		interface Design {
-			readonly _type: 'design'
+			readonly _type: 'design' | 'reference'
 			id: { current: string }
 			title?: string
 			text?: Richtext[]
