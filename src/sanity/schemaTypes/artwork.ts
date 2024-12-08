@@ -8,12 +8,6 @@ export default defineType({
 	type: 'document',
 	fields: [
 		defineField({
-			name: 'id',
-			title: 'Identifier',
-			type: 'slug',
-			validation: (Rule) => Rule.required(),
-		}),
-		defineField({
 			name: 'layers',
 			type: 'array',
 			of: [{ type: 'image' }],
@@ -25,8 +19,16 @@ export default defineType({
 	],
 	preview: {
 		select: {
-			title: 'date',
-			id: 'id',
+			date: 'date',
+			_id: '_id',
+			image: 'layers.0.asset',
+		},
+		prepare({ date, _id, image }) {
+			return {
+				title: date,
+				subtitle: _id.replace(/^drafts\./, ''),
+				media: image,
+			}
 		},
 	},
 })
