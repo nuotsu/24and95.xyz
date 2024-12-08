@@ -10,7 +10,13 @@ export default async function ArtPage({ params }: Params) {
 	const { id } = await params
 
 	const artwork = await fetchSanityLive<Sanity.Artwork>({
-		query: groq`*[_type == 'artwork' && _id == $id][0]`,
+		query: groq`*[_type == 'artwork' && _id == $id][0]{
+			...,
+			layers[]{
+				...,
+				_type == 'reference' => @->
+			}
+		}`,
 		params: { id },
 	})
 

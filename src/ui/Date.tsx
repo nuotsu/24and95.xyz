@@ -14,7 +14,10 @@ export default function Date({
 
 	return (
 		<time
-			className={cn('font-bold text-amber-400 tabular-nums', className)}
+			className={cn(
+				'font-autoboy font-bold text-amber-400 tabular-nums',
+				className,
+			)}
 			dateTime={date}
 		>
 			<i>&rsquo;{formatDate(date, 'yy')}年</i>
