@@ -1,11 +1,12 @@
 import { fetchSanityLive, groq } from '@/sanity/lib/fetch'
 import { notFound } from 'next/navigation'
+import Art from './Art'
 
 type Params = {
 	params: Promise<{ id: string }>
 }
 
-export default async function Art({ params }: Params) {
+export default async function ArtPage({ params }: Params) {
 	const { id } = await params
 
 	const artwork = await fetchSanityLive<Sanity.Artwork>({
@@ -15,7 +16,7 @@ export default async function Art({ params }: Params) {
 
 	if (!artwork) return notFound()
 
-	return <div>{artwork?._id}</div>
+	return <Art artwork={artwork} />
 }
 
 export async function generateMetadata({ params }: Params) {

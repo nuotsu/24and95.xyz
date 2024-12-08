@@ -4,7 +4,7 @@ import type { SanityImageObject } from '@sanity/image-url/lib/types/types'
 declare global {
 	namespace Sanity {
 		interface Artwork extends SanityDocument {
-			layers: Image[]
+			layers?: Image[]
 			date: string
 		}
 
