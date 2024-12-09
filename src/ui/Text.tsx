@@ -1,10 +1,11 @@
 import { PortableText } from 'next-sanity'
+import { cn } from '@/lib/utils'
 import type { ComponentProps } from 'react'
 
 export default function Text({
 	design,
 	index = 0,
-	...props
+	className,
 }: {
 	design: Sanity.Design
 	index?: number
@@ -12,7 +13,7 @@ export default function Text({
 	if (!design) return null
 
 	return (
-		<div {...props}>
+		<div className={cn('space-y-2', className)}>
 			<PortableText value={design.text?.[index].content} />
 		</div>
 	)

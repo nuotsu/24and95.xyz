@@ -11,22 +11,23 @@ export default async function Home() {
 	})
 
 	return (
-		<>
-			<h1 className="font-dela">24アンド95</h1>
-
-			<ul>
+		<section className="mt-(--header-height)">
+			<ul className="mx-auto max-w-xs">
 				{artworks.map((artwork) => (
 					<li key={artwork._id}>
-						<Link href={`/art/${artwork._id}`}>
-							<span className="font-serif text-2xl">
+						<Link
+							className="flex items-baseline gap-x-4"
+							href={`/art/${artwork._id}`}
+						>
+							<span className="grow font-serif text-2xl">
 								{artwork.title || artwork._id}
 							</span>
 
-							<Date className="text-xs" date={artwork.date} />
+							<Date className="text-xs text-amber-400/90" date={artwork.date} />
 						</Link>
 					</li>
 				))}
 			</ul>
-		</>
+		</section>
 	)
 }

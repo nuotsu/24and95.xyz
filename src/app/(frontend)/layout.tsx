@@ -1,3 +1,4 @@
+import Header from '@/ui/header'
 import { SanityLive } from '@/sanity/lib/fetch'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
@@ -15,7 +16,8 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className="bg-canvas text-ink">
-				<main>{children}</main>
+				<Header />
+				<main role="main">{children}</main>
 				<SanityLive />
 			</body>
 		</html>

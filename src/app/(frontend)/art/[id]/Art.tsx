@@ -5,8 +5,8 @@ import Date from '@/ui/Date'
 
 export default function Art({ artwork }: { artwork: Sanity.Artwork }) {
 	return (
-		<section className="grid min-h-svh place-content-center overflow-hidden">
-			<figure className="anim-film-develop relative grid w-screen">
+		<section className="grid min-h-svh place-content-center">
+			<figure className="anim-film-develop relative grid w-screen overflow-hidden">
 				{artwork.layers?.reverse().map((layer, i) => {
 					switch (layer._type) {
 						case 'image':
@@ -16,11 +16,7 @@ export default function Art({ artwork }: { artwork: Sanity.Artwork }) {
 									key={i}
 								>
 									{layer.addNoise && (
-										<Noise
-											className="absolute inset-0 opacity-70 mix-blend-color-dodge grayscale"
-											baseFrequency={3}
-											numOctaves={6}
-										/>
+										<Noise className="absolute inset-0 opacity-70 mix-blend-color-dodge md:grayscale" />
 									)}
 
 									<Img

@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'react'
 
 export default function Noise({
-	baseFrequency = 0.61,
-	numOctaves = 3,
+	baseFrequency = 2,
+	numOctaves = 6,
 	...props
 }: ComponentProps<'svg'>) {
 	return (
