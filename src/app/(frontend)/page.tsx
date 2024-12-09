@@ -23,7 +23,10 @@ export default async function Home() {
 								{artwork.title || artwork._id}
 							</span>
 
-							<Date className="text-xs text-amber-400/90" date={artwork.date} />
+							<Date
+								className="text-xs text-amber-400/90 blur-[.5px]"
+								date={artwork.date}
+							/>
 						</Link>
 					</li>
 				))}

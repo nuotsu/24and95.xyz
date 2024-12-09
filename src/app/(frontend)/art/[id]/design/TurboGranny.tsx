@@ -27,7 +27,7 @@ export default function TurboGranny({ design }: { design: Sanity.Design }) {
 				/>
 			</div>
 
-			<h2 className="font-dela absolute top-1/2 right-0 -translate-y-1/2 text-[16.3vw] leading-tight tracking-[-.15em] whitespace-nowrap opacity-90 mix-blend-difference blur-[1px] [writing-mode:vertical-rl]">
+			<h2 className="font-dela absolute top-1/2 right-0 -translate-y-1/2 rotate-3 text-[16.3vw] leading-tight tracking-[-.15em] whitespace-nowrap opacity-90 mix-blend-difference blur-[1px] [writing-mode:vertical-rl]">
 				ターボババア
 			</h2>
 		</>

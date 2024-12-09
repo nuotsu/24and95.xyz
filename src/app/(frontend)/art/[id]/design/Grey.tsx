@@ -4,10 +4,10 @@ export default function Grey({ design }: { design: Sanity.Design }) {
 	return (
 		<div className="flex h-full flex-col text-center text-[#de5625] selection:bg-[#de5625] selection:text-white">
 			<div className="grid h-full place-content-center mix-blend-exclusion">
-				<h1 className="font-serif text-[22vw] leading-[.6] tracking-tight">
+				<h1 className="font-serif text-[28vw] leading-[.52] tracking-tight">
 					{design.title}
 				</h1>
-				<p className="font-dela text-[6vw]" lang="ja">
+				<p className="font-dela text-[8vw]" lang="ja">
 					宇宙人グレイ
 				</p>
 			</div>
