@@ -12,7 +12,7 @@ export default async function Home() {
 
 	return (
 		<section className="mt-(--header-height)">
-			<ul className="mx-auto max-w-xs">
+			<ul className="mx-auto max-w-sm">
 				{artworks.map((artwork) => (
 					<li key={artwork._id}>
 						<Link
